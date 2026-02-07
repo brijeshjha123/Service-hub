@@ -1,0 +1,66 @@
+﻿[dotenv@17.2.1] injecting env (4) from .env -- tip: ≡ƒöÉ prevent committing .env to code: https://dotenvx.com/precommit
+Γ£à MongoDB connected
+node : 
+node:events:496
+At line:1 char:1
++ node src/server.js 
+2>&1 | Out-File 
+-FilePath 
+"debug_error.txt" 
+-Encod ...
++ ~~~~~~~~~~~~~~~~~~~
+~~~~
+    + CategoryInfo   
+           : NotSpe  
+  cified: (node:ev   
+ ents:496:String)    
+ [], RemoteExcep    
+tion
+    + FullyQualified 
+   ErrorId : Native  
+  CommandError
+ 
+      throw er; // 
+Unhandled 'error' 
+event
+      ^
+
+Error: listen 
+EADDRINUSE: address 
+already in use 
+:::5000
+    at Server.setupLi
+stenHandle [as 
+_listen2] 
+(node:net:1937:16)
+    at 
+listenInCluster 
+(node:net:1994:12)
+    at Server.listen 
+(node:net:2099:7)
+    at C:\Users\brije
+\Downloads\Service-hu
+b-main (1)\Service-hu
+b-main\backend\src\se
+rver.js:55:16
+    at process.proces
+sTicksAndRejections (
+node:internal/process
+/task_queues:105:5)
+Emitted 'error' 
+event on Server 
+instance at:
+    at emitErrorNT 
+(node:net:1973:8)
+    at process.proces
+sTicksAndRejections (
+node:internal/process
+/task_queues:90:21) {
+  code: 'EADDRINUSE',
+  errno: -4091,
+  syscall: 'listen',
+  address: '::',
+  port: 5000
+}
+
+Node.js v22.14.0
