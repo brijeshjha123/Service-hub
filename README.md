@@ -2,7 +2,8 @@
 
 ServiceHub is a comprehensive web application designed to connect customers with local service providers (Plumbers, Electricians, Cleaners, etc.) in real-time. It features a robust administration dashboard, secure role-based access, and automated commission calculations.
 
-![Brand Banner](https://github.com/user-attachments/assets/0cb12255-a5c8-435a-8c93-29ca076f45f2)
+
+![Uploading {8618EA28-6034-4A53-A8E8-26A26490ECEE}.png…]()
 
 ## 🚀 Key Features
 
