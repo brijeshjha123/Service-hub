@@ -17,7 +17,7 @@ ServiceHub is a comprehensive web application designed to connect customers with
 - **Live Dashboard**: Real-time job requests and status management (Accept/Decline/Start/Complete).
 - **Earnings Tracker**: View daily and total earnings with transparent platform fee deduction.
 
-![Provider Dashboard](screenshots/provider_dashboard.png)
+<!-- ![Provider Dashboard](screenshots/provider_dashboard.png) -->
 
 ### 🛡️ Admin Portal (Hidden & Secured)
 - **Centralized Management**: Approve/Reject service providers and manage customer profiles.
@@ -25,7 +25,7 @@ ServiceHub is a comprehensive web application designed to connect customers with
 - **Complaint Resolution**: View and manage customer disputes.
 - **Security**: Hidden login portal with rate-limiting and strictly enforced role protection.
 
-![Admin Dashboard](screenshots/admin_dashboard.png)
+<!-- ![Admin Dashboard](screenshots/admin_dashboard.png) -->
 
 ## 💻 Tech Stack
 
