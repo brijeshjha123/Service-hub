@@ -69,7 +69,9 @@ const Navbar = () => {
                     </div>
 
                     <div className="flex items-center space-x-4">
-                        {currentUser ? (
+                        {loading ? (
+                            <div className="h-8 w-8 rounded-full border-2 border-primary border-t-transparent animate-spin"></div>
+                        ) : currentUser ? (
                             <div className="flex items-center gap-4">
                                 <div className="relative cursor-pointer" onClick={() => navigate(userProfile?.role === 'provider' ? '/pro' : '/dashboard')}>
                                     <Bell className="h-5 w-5 text-gray-600" />
@@ -79,8 +81,15 @@ const Navbar = () => {
                                         </span>
                                     )}
                                 </div>
-                                <span className="text-sm font-medium hidden sm:block">Hi, {currentUser.displayName || currentUser.email?.split('@')[0]}</span>
-                                <Button variant="ghost" size="icon" onClick={handleLogout} title="Logout">
+                                <div className="flex items-center gap-2 px-3 py-1.5 bg-gray-100 rounded-full border border-gray-200">
+                                    <div className="h-6 w-6 bg-primary/10 rounded-full flex items-center justify-center">
+                                        <User className="h-3.5 w-3.5 text-primary" />
+                                    </div>
+                                    <span className="text-sm font-semibold text-gray-800">
+                                        {userProfile?.displayName || userProfile?.name || currentUser.email?.split('@')[0]}
+                                    </span>
+                                </div>
+                                <Button variant="ghost" size="icon" onClick={handleLogout} title="Logout" className="hover:bg-red-50 hover:text-red-600 transition-colors">
                                     <LogOut className="h-5 w-5" />
                                 </Button>
                             </div>

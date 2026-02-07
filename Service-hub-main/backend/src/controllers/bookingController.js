@@ -1,5 +1,6 @@
 const Booking = require('../models/Booking');
 const User = require('../models/User');
+const mongoose = require('mongoose');
 
 exports.createBooking = async (req, res) => {
     try {
@@ -86,7 +87,7 @@ exports.getBookings = async (req, res) => {
 
 exports.updateBookingStatus = async (req, res) => {
     try {
-        const { status } = req.body;
+        const { status, rating, review } = req.body;
         const { id } = req.params;
 
         if (!id || id === 'undefined' || !mongoose.Types.ObjectId.isValid(id)) {
@@ -99,9 +100,20 @@ exports.updateBookingStatus = async (req, res) => {
             return res.status(404).json({ message: "Booking not found" });
         }
 
-        booking.status = status;
-        if (status === 'confirmed' || status === 'accepted') {
-            booking.provider = req.user.id;
+        // Only update status if explicitly provided
+        if (status) {
+            booking.status = status;
+            if (status === 'confirmed' || status === 'accepted') {
+                booking.provider = req.user.id;
+            }
+        }
+
+        // Handle rating and review
+        if (rating !== undefined) {
+            booking.rating = rating;
+        }
+        if (review !== undefined) {
+            booking.review = review;
         }
 
         await booking.save();

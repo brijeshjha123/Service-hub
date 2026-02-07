@@ -50,6 +50,15 @@ const bookingSchema = new mongoose.Schema({
         enum: ['pending', 'paid', 'failed'],
         default: 'pending'
     },
+    rating: {
+        type: Number,
+        min: 1,
+        max: 5
+    },
+    review: {
+        type: String,
+        trim: true
+    },
     createdAt: {
         type: Date,
         default: Date.now

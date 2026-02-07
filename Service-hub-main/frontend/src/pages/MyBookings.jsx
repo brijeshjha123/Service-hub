@@ -3,7 +3,7 @@ import { useAuth } from '../hooks/useAuth';
 import api from '../api/axios';
 import { Card, CardContent } from '../components/ui/Card';
 import { Button } from '../components/ui/Button';
-import { Calendar, Clock, MapPin, Star } from 'lucide-react';
+import { Calendar, Clock, MapPin, Star, AlertCircle } from 'lucide-react';
 import { socket } from '../lib/socket';
 import Map from '../components/Map';
 

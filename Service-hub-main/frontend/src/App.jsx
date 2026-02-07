@@ -16,6 +16,8 @@ import RoleRoute from './components/RoleRoute';
 import Chatbot from './components/Chatbot';
 import AdminLogin from './pages/AdminLogin';
 import AdminDashboard from './pages/AdminDashboard';
+import ProviderSignup from './pages/ProviderSignup';
+import ProviderLogin from './pages/ProviderLogin';
 import { useAuth } from './hooks/useAuth';
 import Footer from './components/Footer';
 
@@ -77,6 +79,8 @@ function App() {
               <Route path="/dashboard" element={<Navigate to="/customer/dashboard" replace />} />
 
               {/* Provider Routes */}
+              <Route path="/provider/login" element={<ProviderLogin />} />
+              <Route path="/provider/signup" element={<ProviderSignup />} />
               <Route path="/provider/dashboard" element={
                 <RoleRoute allowedRoles={['provider']}>
                   <ProviderDashboard />

@@ -5,10 +5,21 @@ require('dotenv').config({ path: './backend/.env' });
 
 const seedAdmin = async () => {
     try {
-        await mongoose.connect(process.env.MONGO_URI || 'mongodb+srv://brijeshzhaaa:b1fcT4RaeSq8QZKb@cluster0.lhxc4rg.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');
+        if (!process.env.MONGO_URI) {
+            console.error('MONGO_URI is missing in .env file');
+            process.exit(1);
+        }
+        await mongoose.connect(process.env.MONGO_URI);
         console.log('MongoDB Connected');
 
-        const adminEmail = 'admin@servicehub.com';
+        const adminEmail = process.env.ADMIN_EMAIL;
+        const adminPassword = process.env.ADMIN_PASSWORD;
+
+        if (!adminEmail || !adminPassword) {
+            console.error('Error: ADMIN_EMAIL or ADMIN_PASSWORD is not set in environment variables.');
+            process.exit(1);
+        }
+
         const existingAdmin = await User.findOne({ email: adminEmail });
 
         if (existingAdmin) {
@@ -17,7 +28,7 @@ const seedAdmin = async () => {
         }
 
         const salt = await bcrypt.genSalt(10);
-        const hashedPassword = await bcrypt.hash('admin123', salt);
+        const hashedPassword = await bcrypt.hash(adminPassword, salt);
 
         const newAdmin = new User({
             name: 'Super Admin',
@@ -29,8 +40,6 @@ const seedAdmin = async () => {
 
         await newAdmin.save();
         console.log('Admin created successfully');
-        console.log('Email: admin@servicehub.com');
-        console.log('Password: admin123');
         process.exit();
     } catch (error) {
         console.error('Error seeding admin:', error);

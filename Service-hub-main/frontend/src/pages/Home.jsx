@@ -171,7 +171,7 @@ const Home = () => {
                                 <Button
                                     size="lg"
                                     className="bg-primary text-white hover:bg-primary/90"
-                                    onClick={() => navigate('/signup?role=provider')}
+                                    onClick={() => navigate('/provider/signup')}
                                 >
                                     Become a Service Partner
                                 </Button>

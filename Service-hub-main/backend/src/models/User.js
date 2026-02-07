@@ -10,13 +10,18 @@ const userSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
+  googleId: {
+    type: String,
+    unique: true,
+    sparse: true, // Allows null values while maintaining uniqueness for non-null values
+  },
   password: {
     type: String,
     required: true,
   },
   role: {
     type: String,
-    enum: ['user', 'customer', 'provider', 'admin'],
+    enum: ['customer', 'provider', 'admin'],
     default: 'customer',
   },
   serviceCategory: {
