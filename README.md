@@ -61,4 +61,6 @@ ServiceHub is a comprehensive web application designed to connect customers with
 - All Admin routes are protected by robust backend middleware and rate-limiters.
 
 ---
-![Dashboard Preview](https://github.com/user-attachments/assets/3fbe2898-e150-4074-9f2b-5ecf0e4e05ed)
+{8618EA28-6034-4A53-A8E8-26A26490ECEE}.png
+
+
